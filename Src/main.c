@@ -2031,6 +2031,16 @@ if(zero_crosses < 5){
             startADCConversion( );
             converted_degrees = getConvertedDegrees(ADC_raw_temp);
 #endif
+
+	#ifdef USE_LMT87
+				converted_degrees = getLMT87Degrees(ADC_raw_ntc);
+    #endif            
+#ifdef EPROPELLED_6S_G431_4in1
+	#ifdef USE_NTC
+				converted_degrees =  getNTCDegrees(ADC_raw_ntc);
+	#endif
+#endif
+
             degrees_celsius = converted_degrees;
             battery_voltage = ((7 * battery_voltage) + ((ADC_raw_volts * 3300 / 4095 * VOLTAGE_DIVIDER) / 100)) >> 3;
             smoothed_raw_current = getSmoothedCurrent();
