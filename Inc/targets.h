@@ -47,6 +47,7 @@
 // #define GD32SKYSTARS40
 // #define EPROPELLED_G431_CAN
 // #define EPROPELLED_4in1_G431_CAN
+// #define EPROP_SKYLARK_G431_CAN
 
 #endif
 
@@ -88,6 +89,23 @@
 #define MILLIVOLT_PER_AMP         13      // Really it is 13.2
 #define TARGET_VOLTAGE_DIVIDER    105
 #define USE_NTC
+#define HAVE_CONVERT_TEMPERATURE
+#endif
+
+#ifdef EPROP_SKYLARK_G431_CAN
+#define FIRMWARE_NAME "EPROPG4_40A"
+#define FILE_NAME "EPROP_SKYLARK_G431_CAN"
+#define DEAD_TIME 120
+#define DRONECAN_SUPPORT 1
+#define DRONECAN_NODE_NAME "com.epropelled.esc_skylark"
+#define HARDWARE_GROUP_G4_F
+#define TARGET_STALL_PROTECTION_INTERVAL 20000
+#define USE_SERIAL_TELEMETRY
+#define USE_RGB_LED
+#define CURRENT_OFFSET            1650
+#define MILLIVOLT_PER_AMP         -9
+#define TARGET_VOLTAGE_DIVIDER    105
+#define USE_MCP9700
 #define HAVE_CONVERT_TEMPERATURE
 #endif
 
